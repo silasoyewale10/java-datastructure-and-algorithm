@@ -18,7 +18,7 @@ The bigo is linear. Get the middle number each time and compare the number you a
 the middle number. If number of unknown index is greater than the middle number, set the first index 
 to be next index after the middle index. Repeat for if unknown index is less than middle index in which 
 case, you will change the last index to be the mddle index - 1. If you find your number, return 1, else 
-return -1.
+return -1. This is a very efficient way to do binary search.
 
 # Image for whiteboard
 <img src="./binary-search.JPG"
