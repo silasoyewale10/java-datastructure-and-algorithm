@@ -3,21 +3,22 @@
 Binary Search
 ### data-structures-and-algorithms
 
-### Reverse an Array
+### Binary Search
 <!-- Short summary or background information -->
-An array is a collection of similar data type 
-Write a function that takes in an array and returns and array in a reversed order.
+Write a function called BinarySearch which takes in 2 parameters: a sorted array and the search key. 
+Without utilizing any of the built-in methods available to your language, return the index of the array’s
+ element that is equal to the search key, or -1 if the element does not exist.
 
 ### Challenge
 <!-- Description of the challenge -->
-Write a function called reverseArray which takes an array as an argument. Without 
-utilizing any of the built-in methods available to your language, return an array with elements in reversed order
-
+Use the most efficient way to find the index of a number in an array that is sorted.
 ### Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
-The approach I took is to loop through the input array and reverse the indexes of the elements. 
-Get the length of the array, declare an empty array, and loop over the input array. Declare a count to increase after each iteration and set the new array at position counter to be the postition i of the input array. Increment counter and return the new array. 
-The big 0 is linear. Just one for loop.
+The bigo is linear. Get the middle number each time and compare the number you are looking for with 
+the middle number. If number of unknown index is greater than the middle number, set the first index 
+to be next index after the middle index. Repeat for if unknown index is less than middle index in which 
+case, you will change the last index to be the mddle index - 1. If you find your number, return 1, else 
+return -1.
 
 # Image for whiteboard
 <img src="./binary-search.JPG"
