@@ -1,21 +1,30 @@
 # AUTHOR: SILAS OYEWALE
 ## Table of contents
-Binary Search
+LinkedList Implementation
 ### data-structures-and-algorithms
 
-### Binary Search
+### Linked List Implementation
 <!-- Short summary or background information -->
-Write a function called BinarySearch which takes in 2 parameters: a sorted array and the search key. 
-Without utilizing any of the built-in methods available to your language, return the index of the array’s
- element that is equal to the search key, or -1 if the element does not exist.
+linked list is a popular data structure in java. It is a link of many nodes. Each node has a value and the memory location of the next node. The first node is called ther head and automatically has a memory location of null since its next node doesn't exist.
 
 ### Challenge
 <!-- Description of the challenge -->
-Use the most efficient way to find the index of a number in an array that is sorted.
+Create a Node class that has properties for the value stored in the Node, and a pointer to the next Node.
+Define a method called insert which takes any value as an argument and adds a new node with that value to the head of the list with an O(1) Time performance.
+Define a method called includes which takes any value as an argument and returns a boolean result depending on whether that value exists as a Node’s value somewhere within the list.
+Define a method called toString (or __str__ in Python) which takes in no arguments and returns a string representing all the values in the Linked List, formatted as:
+"{ a } -> { b } -> { c } -> NULL"
 ### Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
-The bigo is linear. Get the middle number each time and compare the number you are looking for with 
-the middle number. If number of unknown index is greater than the middle number, set the first index 
-to be next index after the middle index. Repeat for if unknown index is less than middle index in which 
-case, you will change the last index to be the mddle index - 1. If you find your number, return 1, else 
-return -1. This is a very efficient way to do binary search.
+Create a node class and a linked list class. Name the linked list seperatedly from java inbuilt LinkedList class to avoid overwritten class. I created a function to add things into the array, another method to add to the head, andother method to print out the list, and another method to find things in the list. 
+## API
+<!-- Description of each method publicly available to your Linked List -->
+#### toString
+Prints out the content of the list in the format . "{ a } -> { b } -> { c } -> NULL"
+#### populateList
+Adds strings to the list.
+#### insert
+adds to the head or resets the head
+#### includes
+checks if a certain node value is in the list. RTeturns true if its in the list returns false if not in the list.
+
