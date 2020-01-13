@@ -61,5 +61,11 @@ public class MyLinkedListTest {
 
 
     }
+    @Test public void testEmptyLinkedList() {   //checks if what is provided is inserted into the head of the linked list
+        MyLinkedList list1 = new MyLinkedList();
+        list1.populateList("");
+        assertEquals("{  } -> NULL", list1.toString());
+
+    }
 
 }
