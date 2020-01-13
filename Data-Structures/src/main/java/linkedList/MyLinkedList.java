@@ -20,8 +20,9 @@ public class MyLinkedList{
         }
     }
     public String toString(){
+
         String result = "";
-      //      "{ a } -> { b } -> { c } -> NULL"
+        //      "{ a } -> { b } -> { c } -> NULL"
         Node node = head;
         while(node.next != null ){
             System.out.println(node.data);
