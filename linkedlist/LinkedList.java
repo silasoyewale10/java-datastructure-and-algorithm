@@ -23,16 +23,16 @@ public class MyLinkedList{
         String result = "";
       //      "{ a } -> { b } -> { c } -> NULL"
         Node node = head;
-        while(node.next != null ){
+        while(node.next != null){
             System.out.println(node.data);
             result+= "{ " + node.data + " } -> ";
             node = node.next;
         }
-        String answer = result + "{ "+ node.data+ " } -> " + "NULL";
-//        System.out.println(node.data);
-        System.out.println("answer = " + " "+answer);
+        String answer = result + "NULL";
+        System.out.println(node.data);
+        System.out.println("result = " + " "+answer);
 
-        return answer;
+        return result;
     }
     public boolean includes(String toBeFound) {
         boolean answer = false;
