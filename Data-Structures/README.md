@@ -21,10 +21,14 @@ Create a node class and a linked list class. Name the linked list seperatedly fr
 <!-- Description of each method publicly available to your Linked List -->
 #### toString
 Prints out the content of the list in the format . "{ a } -> { b } -> { c } -> NULL"
-#### populateList
+#### Append
 Adds strings to the list.
 #### insert
 adds to the head or resets the head
 #### includes
 checks if a certain node value is in the list. RTeturns true if its in the list returns false if not in the list.
+### Insert Before: 
+Takes in 2 things. The current value in the node and the value to be inserted before the node
+### Insert After
+Takes 2 things. The current value in the node and the value to be inserted after the node.
 
