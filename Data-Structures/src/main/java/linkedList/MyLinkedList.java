@@ -2,7 +2,7 @@ package linkedList;
 
 public class MyLinkedList{
     Node head;
-    public void populateList(String data){
+    public void append(String data){
         //create a new node
         Node node = new Node ();
         node.data = data;
@@ -60,5 +60,44 @@ public class MyLinkedList{
         this.head = head;
 //        System.out.println("this.head = " + this.head.data);
         return this.head.data;
+    }
+
+    public void insertBefore(String value, String newVal){
+        System.out.println("Insert before starts");
+
+        Node start = head;
+        Node now = start;
+
+        while( now.next != null )
+        {
+            if( now.next.data == value )
+            {
+                Node n = new Node();
+                n.data = newVal;
+                n.next = now.next;
+                now.next = n;
+                return;
+            }
+            else {
+                now = now.next;
+            }
+        }
+    }
+    public void insertAfter(String value, String newVal){
+        System.out.println("Insert after starts");
+        Node start = head;
+        Node n = new Node();
+        n.data = newVal;
+        Node now = head;
+        while(now != null){
+            if(now.data == value){
+                n.next = now.next;
+                now.next = n;
+                return;
+            }
+            else{
+                now = now.next;
+            }
+        }
     }
 }

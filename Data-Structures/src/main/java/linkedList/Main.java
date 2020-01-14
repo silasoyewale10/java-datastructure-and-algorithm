@@ -7,12 +7,12 @@ public class Main {
         MyLinkedList list1 = new MyLinkedList();
 
         //populate the list
-        list1.populateList("Apple");
-        list1.populateList("Orange");
-        list1.populateList("Mango");
-        list1.populateList("Pawpaw");
-        list1.populateList("Strawberry");
-        list1.populateList("Blueberry");
+        list1.append("Apple");
+        list1.append("Orange");
+        list1.append("Mango");
+        list1.append("Pawpaw");
+        list1.append("Strawberry");
+        list1.append("Blueberry");
 
         //insert another fruit to the head
 
