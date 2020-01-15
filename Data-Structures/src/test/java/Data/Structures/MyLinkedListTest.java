@@ -98,4 +98,70 @@ public class MyLinkedListTest {
 
         assertEquals("{ Brittany } -> { Ashley } -> { Jessica } -> { Carmille } -> { Langgy } -> NULL", list1.toString() );
     }
+
+    @Test public void testKthGreaterThanListLength() {   //checks if what is provided is inserted into the head of the linked list
+        MyLinkedList list1 = new MyLinkedList();
+        list1.append("Brittany");
+        list1.append("ljhugh");
+        list1.append("Ashl");
+        list1.append("Ashley");
+        list1.append("fghiu");
+        list1.append("fgpoi");
+        list1.append("fgp");
+        list1.append("fg");
+        list1.append("fghiuyt");
+
+        assertEquals("can't find it",list1.kthFromEnd(30));
+    }
+
+    @Test public void testKthKSameAsListLength() {   //checks if what is provided is inserted into the head of the linked list
+        MyLinkedList list1 = new MyLinkedList();
+        list1.append("Brittany");
+        list1.append("ljhugh");
+        list1.append("Ashl");
+        list1.append("Ashley");
+        list1.append("fghiu");
+        list1.append("fgpoi");
+        list1.append("fgp");
+        list1.append("fg");
+        list1.append("fghiuyt");
+
+        assertEquals("Brittany",list1.kthFromEnd(8));
+    }
+    @Test public void testKthKNotPositiveNumber() {   //checks if what is provided is inserted into the head of the linked list
+        MyLinkedList list1 = new MyLinkedList();
+        list1.append("Brittany");
+        list1.append("ljhugh");
+        list1.append("Ashl");
+        list1.append("Ashley");
+        list1.append("fghiu");
+        list1.append("fgpoi");
+        list1.append("fgp");
+        list1.append("fg");
+        list1.append("fghiuyt");
+
+        assertEquals("can't find it",list1.kthFromEnd(-1));
+    }
+    @Test public void testKthListSizeOne() {   //checks if what is provided is inserted into the head of the linked list
+        MyLinkedList list1 = new MyLinkedList();
+        list1.append("Brittany");
+        list1.append("Ashley");
+
+        assertEquals("Brittany", list1.kthFromEnd(1));
+    }
+
+    @Test public void testKthKInTheMiddle() {   //checks if what is provided is inserted into the head of the linked list
+        MyLinkedList list1 = new MyLinkedList();
+        list1.append("Brittany");
+        list1.append("ljhugh");
+        list1.append("Ashl");
+        list1.append("Ashley");
+        list1.append("fghiu");
+        list1.append("fgpoi");
+        list1.append("fgp");
+        list1.append("fg");
+        list1.append("fghiuyt");
+
+        assertEquals("Ashley",list1.kthFromEnd(5));
+    }
 }

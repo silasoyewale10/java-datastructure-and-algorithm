@@ -100,4 +100,70 @@ public class MyLinkedList{
             }
         }
     }
+    public String kthFromEnd(int k) {
+//        int count  = 0;
+//        Node temp=head;
+//        int lenOfList = 0;
+//        while(temp!=null)
+//        {
+//            temp=temp.next;
+//            lenOfList++;
+//        }
+//        Node node = head;
+//        while (node.next != null) {
+////            System.out.println("node.data = " + node.data);
+//            if(k == (lenOfList - count - 1)){
+//                return node.data;
+//            }
+//            System.out.println(node.data);
+//            node = node.next;
+//            count++;
+//        }
+//        return "can't find it";
+
+
+
+
+
+
+
+
+
+
+        int count  = 0;
+        Node temp=head;
+        int lenOfList = 0;
+        while(temp!=null)
+        {
+            temp=temp.next;
+            lenOfList++;
+        }
+        Node node = head;
+        try {
+            if(k > lenOfList){
+                throw new IndexOutOfBoundsException();
+            }
+            while (node.next != null) {
+//            System.out.println("node.data = " + node.data);
+                if(k == (lenOfList - count - 1)){
+                    return node.data;
+                }
+                System.out.println(node.data);
+                node = node.next;
+                count++;
+
+
+
+
+            }
+        }
+        catch(IndexOutOfBoundsException e) {
+            System.out.println("Out of bound");
+//            throw new Exception("out of bound");
+        }
+
+        return "can't find it";
+//        return node.data;
+    }
+
 }
