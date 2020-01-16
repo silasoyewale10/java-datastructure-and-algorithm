@@ -100,7 +100,7 @@ public class MyLinkedList{
             }
         }
     }
-    public String kthFromEnd(int k) {
+//    public String kthFromEnd(int k) {
 //        int count  = 0;
 //        Node temp=head;
 //        int lenOfList = 0;
@@ -110,26 +110,28 @@ public class MyLinkedList{
 //            lenOfList++;
 //        }
 //        Node node = head;
-//        while (node.next != null) {
-////            System.out.println("node.data = " + node.data);
-//            if(k == (lenOfList - count - 1)){
-//                return node.data;
+//        try {
+//            if(k > lenOfList){
+//                throw new IndexOutOfBoundsException();
 //            }
-//            System.out.println(node.data);
-//            node = node.next;
-//            count++;
+//            while (node.next != null) {
+////            System.out.println("node.data = " + node.data);
+//                if(k == (lenOfList - count - 1)){
+//                    return node.data;
+//                }
+//                System.out.println(node.data);
+//                node = node.next;
+//                count++;
+//            }
+//        }
+//        catch(IndexOutOfBoundsException e) {
+//            System.out.println("Out of bound");
 //        }
 //        return "can't find it";
+//    }
 
 
-
-
-
-
-
-
-
-
+    public String kthFromEnd(int k) {
         int count  = 0;
         Node temp=head;
         int lenOfList = 0;
@@ -139,9 +141,10 @@ public class MyLinkedList{
             lenOfList++;
         }
         Node node = head;
-        try {
+
             if(k > lenOfList){
-                throw new IndexOutOfBoundsException();
+                throw new IndexOutOfBoundsException("k is larger than the length of the linked list");
+
             }
             while (node.next != null) {
 //            System.out.println("node.data = " + node.data);
@@ -151,19 +154,9 @@ public class MyLinkedList{
                 System.out.println(node.data);
                 node = node.next;
                 count++;
-
-
-
-
             }
-        }
-        catch(IndexOutOfBoundsException e) {
-            System.out.println("Out of bound");
-//            throw new Exception("out of bound");
-        }
 
         return "can't find it";
-//        return node.data;
     }
 
 }
