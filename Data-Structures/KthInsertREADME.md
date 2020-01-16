@@ -31,6 +31,5 @@ Takes in 2 things. The current value in the node and the value to be inserted be
 Takes 2 things. The current value in the node and the value to be inserted after the node.
 
 # Image for whiteboard
-<img src="code-challenge-7.png"
-     alt="White Board Picture"
-     style="width: 200px;" />
+![](assets/code-challenge-7.png)
+
