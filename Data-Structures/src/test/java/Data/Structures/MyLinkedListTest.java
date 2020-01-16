@@ -5,6 +5,9 @@ package Data.Structures;
 
 import linkedList.MyLinkedList;
 import org.junit.Test;
+
+import java.util.LinkedList;
+
 import static org.junit.Assert.*;
 
 public class MyLinkedListTest {
@@ -168,5 +171,26 @@ public class MyLinkedListTest {
         list1.append("fghiuyt");
 
         assertEquals("Ashley",list1.kthFromEnd(5));
+    }
+
+    @Test public void testLinkedListMerge() {
+
+        MyLinkedList list1 = new MyLinkedList();
+        list1.append("ab");
+        list1.append("cd");
+        list1.append("ef");
+        list1.append("gh");
+
+        MyLinkedList list2 = new MyLinkedList();
+        list2.append("lm");
+        list2.append("no");
+        list2.append("pq");
+
+        MyLinkedList merger = new MyLinkedList();
+        merger.mergeList(list1, list2);
+
+//        System.out.println(merger.mergeList(list1, list2));
+
+
     }
 }
