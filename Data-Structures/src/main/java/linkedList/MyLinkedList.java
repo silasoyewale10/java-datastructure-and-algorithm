@@ -1,5 +1,7 @@
 package linkedList;
 
+import java.util.LinkedList;
+
 public class MyLinkedList{
     Node head;
     public void append(String data){
@@ -100,37 +102,6 @@ public class MyLinkedList{
             }
         }
     }
-//    public String kthFromEnd(int k) {
-//        int count  = 0;
-//        Node temp=head;
-//        int lenOfList = 0;
-//        while(temp!=null)
-//        {
-//            temp=temp.next;
-//            lenOfList++;
-//        }
-//        Node node = head;
-//        try {
-//            if(k > lenOfList){
-//                throw new IndexOutOfBoundsException();
-//            }
-//            while (node.next != null) {
-////            System.out.println("node.data = " + node.data);
-//                if(k == (lenOfList - count - 1)){
-//                    return node.data;
-//                }
-//                System.out.println(node.data);
-//                node = node.next;
-//                count++;
-//            }
-//        }
-//        catch(IndexOutOfBoundsException e) {
-//            System.out.println("Out of bound");
-//        }
-//        return "can't find it";
-//    }
-
-
     public String kthFromEnd(int k) {
         int count  = 0;
         Node temp=head;
@@ -157,6 +128,12 @@ public class MyLinkedList{
             }
 
         return "can't find it";
+    }
+
+    public void mergeList (MyLinkedList list1, MyLinkedList list2){
+//        for(String name : names){
+
+//        }
     }
 
 }
