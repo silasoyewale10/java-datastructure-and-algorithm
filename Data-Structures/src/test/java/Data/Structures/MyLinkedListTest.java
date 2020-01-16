@@ -110,8 +110,13 @@ public class MyLinkedListTest {
         list1.append("fgp");
         list1.append("fg");
         list1.append("fghiuyt");
-
-        assertEquals("can't find it",list1.kthFromEnd(30));
+//        System.out.println("gfgfgfghfgh " + list1.kthFromEnd(30));
+//        assertEquals(new IndexOutOfBoundsException("k is larger than the length of the linked list"),list1.kthFromEnd(30));
+        try{
+            list1.kthFromEnd(30);
+        }catch(IndexOutOfBoundsException e){  //e checks the message that indexoutofexception causes
+            assertEquals("k is larger than the length of the linked list", e.getMessage());
+        }
     }
 
     @Test public void testKthKSameAsListLength() {   //checks if what is provided is inserted into the head of the linked list
