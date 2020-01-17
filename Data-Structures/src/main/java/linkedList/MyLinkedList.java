@@ -84,7 +84,13 @@ public class MyLinkedList{
                 now = now.next;
             }
         }
+
     }
+
+    public Node getHead() {
+        return head;
+    }
+
     public void insertAfter(String value, String newVal){
         System.out.println("Insert after starts");
         Node start = head;
@@ -131,10 +137,10 @@ public class MyLinkedList{
         Node head2 = list2.head;
         Node temp = head.next;
         Node temp2 = head.next;
-        if (head.next == null){
+        if (head == null){
             return list2;
         }
-        if (head2.next == null){
+        if (head2 == null){
             return list1;
         }
         while (head.next !=null){

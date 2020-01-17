@@ -4,6 +4,7 @@
 package Data.Structures;
 
 import linkedList.MyLinkedList;
+import linkedList.Node;
 import org.junit.Test;
 
 import java.util.LinkedList;
@@ -29,7 +30,8 @@ public class MyLinkedListTest {
 
 //        System.out.println( list1.toString());
         assertEquals("{ Apple } -> { Orange } -> { Mango } -> { Pawpaw } -> { Strawberry } -> { Blueberry } -> NULL",list1.toString());
-
+        Node current = list1.getHead();
+        assertEquals(current.data, "Apple"  );
 
     }
     @Test public void testIncludesMethod() { // checks if the data is contained in the list
@@ -178,43 +180,41 @@ public class MyLinkedListTest {
         System.out.println("merging linked lists start here");
 
         MyLinkedList list1 = new MyLinkedList();
-        list1.append("ab");
-        list1.append("cd");
-        list1.append("ef");
-        list1.append("gh");
+        list1.append("one");
+        list1.append("two");
+        list1.append("three");
+        list1.append("four");
 
         MyLinkedList list2 = new MyLinkedList();
-        list2.append("lm");
-        list2.append("no");
-//        list2.append("pq");
+        list2.append("five");
+        list2.append("six");
+        list2.append("seven");
+        try{
+            MyLinkedList merger = new MyLinkedList();
+            System.out.println("merger normal lists "+ merger.mergeList(list1, list2).toString());
 
-        MyLinkedList merger = new MyLinkedList();
-        System.out.println("merger normal lists "+ merger.mergeList(list1, list2).toString());
-//        list1.toString();
-//        list2.toString();
+            assertEquals("{ one } -> { five } -> { two } -> { six } -> { three } -> { seven } -> { four } -> NULL", merger.mergeList(list1, list2).toString());
 
-//        System.out.println(merger.mergeList(list1, list2));
-//        System.out.println("hdfhdfhjdshjfhjfhjf");
+        }catch(NullPointerException e){
+            e.getMessage();
+        }
+
     }
 
-//    @Test public void testLinkedListMergeEmptyList() {
-//
-//        System.out.println("merging linked lists start here");
-//
-//        MyLinkedList list1 = new MyLinkedList();
-//        list1.append("ab");
-//        list1.append("cd");
-//        list1.append("ef");
-//        list1.append("gh");
-//
-//        MyLinkedList list2 = new MyLinkedList();
+    @Test public void testLinkedListMergeEmptyList() {
+
+        System.out.println("merging empty linked lists start here");
+
+        MyLinkedList list1 = new MyLinkedList();
+        list1.append("ab");
+        list1.append("cd");
+
+        MyLinkedList list2 = new MyLinkedList();
 //        list2.append("ghout");
 //        list2.append("out");
-//
-//
-//
-//
-//        MyLinkedList merger = new MyLinkedList();
-//        System.out.println("merger one of the lists is an empty list " + merger.mergeList(list1, list2).toString());
-//    }
+        MyLinkedList merger = new MyLinkedList();
+
+            assertEquals("{ ab } -> { cd } -> NULL", merger.mergeList(list1, list2).toString() );
+
+    }
 }
