@@ -173,7 +173,9 @@ public class MyLinkedListTest {
         assertEquals("Ashley",list1.kthFromEnd(5));
     }
 
-    @Test public void testLinkedListMerge() {
+    @Test public void testLinkedListMergeNormalLists() {
+
+        System.out.println("merging linked lists start here");
 
         MyLinkedList list1 = new MyLinkedList();
         list1.append("ab");
@@ -184,13 +186,35 @@ public class MyLinkedListTest {
         MyLinkedList list2 = new MyLinkedList();
         list2.append("lm");
         list2.append("no");
-        list2.append("pq");
+//        list2.append("pq");
 
         MyLinkedList merger = new MyLinkedList();
-        merger.mergeList(list1, list2);
+        System.out.println("merger normal lists "+ merger.mergeList(list1, list2).toString());
+//        list1.toString();
+//        list2.toString();
 
 //        System.out.println(merger.mergeList(list1, list2));
-
-
+//        System.out.println("hdfhdfhjdshjfhjfhjf");
     }
+
+//    @Test public void testLinkedListMergeEmptyList() {
+//
+//        System.out.println("merging linked lists start here");
+//
+//        MyLinkedList list1 = new MyLinkedList();
+//        list1.append("ab");
+//        list1.append("cd");
+//        list1.append("ef");
+//        list1.append("gh");
+//
+//        MyLinkedList list2 = new MyLinkedList();
+//        list2.append("ghout");
+//        list2.append("out");
+//
+//
+//
+//
+//        MyLinkedList merger = new MyLinkedList();
+//        System.out.println("merger one of the lists is an empty list " + merger.mergeList(list1, list2).toString());
+//    }
 }
