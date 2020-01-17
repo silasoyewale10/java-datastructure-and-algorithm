@@ -84,7 +84,13 @@ public class MyLinkedList{
                 now = now.next;
             }
         }
+
     }
+
+    public Node getHead() {
+        return head;
+    }
+
     public void insertAfter(String value, String newVal){
         System.out.println("Insert after starts");
         Node start = head;
@@ -112,10 +118,8 @@ public class MyLinkedList{
             lenOfList++;
         }
         Node node = head;
-
             if(k > lenOfList){
                 throw new IndexOutOfBoundsException("k is larger than the length of the linked list");
-
             }
             while (node.next != null) {
 //            System.out.println("node.data = " + node.data);
@@ -126,14 +130,29 @@ public class MyLinkedList{
                 node = node.next;
                 count++;
             }
-
         return "can't find it";
     }
+    public MyLinkedList mergeList (MyLinkedList list1, MyLinkedList list2){
+        Node head = list1.head;
+        Node head2 = list2.head;
+        Node temp = head.next;
+        Node temp2 = head.next;
+        if (head == null){
+            return list2;
+        }
+        if (head2 == null){
+            return list1;
+        }
+        while (head.next !=null){
+            temp = head.next;
+            temp2 = head2.next;
+            head.next = head2;
+            head2.next = temp;
+            head = temp;
+            head2 = temp2;
+        }
+        return list1;
 
-    public void mergeList (MyLinkedList list1, MyLinkedList list2){
-//        for(String name : names){
-
-//        }
     }
 
 }
