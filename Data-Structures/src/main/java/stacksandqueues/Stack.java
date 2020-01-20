@@ -28,9 +28,9 @@ public class Stack {
             top = temp.next;
             return temp.data;
         }
-        else {
+        else
             throw new NullPointerException();
-        }
+
     }
     public int peek(){
         if(!isEmpty()){
