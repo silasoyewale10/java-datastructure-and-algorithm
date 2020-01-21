@@ -21,4 +21,4 @@ No API needed.
 
 
 # Image for whiteboard
-![](src/main/resources/assets/whiteboard-code-challenge-11.JPG)
+![](resources/assets/whiteboard-code-challenge-11.JPG)
