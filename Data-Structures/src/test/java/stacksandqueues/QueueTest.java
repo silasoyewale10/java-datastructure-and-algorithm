@@ -52,7 +52,6 @@ public class QueueTest {
         test4.dequeue();
         test4.dequeue();
         test4.dequeue();
-        test4.dequeue();
 
         assertEquals(true, test4.isEmpty());
     }
