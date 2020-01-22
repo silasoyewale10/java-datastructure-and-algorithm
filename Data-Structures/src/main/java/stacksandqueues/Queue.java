@@ -1,28 +1,28 @@
 package stacksandqueues;
 
-public class Queue {
-    private Node front;
-    private Node rear;
+public class Queue<E> {
+    private Node<E> front;
+    private Node<E> rear;
 
     public Queue() {
         this.front = null;
         this.rear = null;
     }
-    public void enqueue(int w){
+    public void enqueue(E w){
         if(isEmpty()){
-            Node n = new Node(w);
+            Node<E> n = new Node<>(w);
             front = n;
             rear = n;
         }else{
-            Node n = new Node (w);
-            Node temp = rear;
+            Node<E> n = new Node<>(w);
+            Node<E> temp = rear;
             temp.next = n;
             rear = n;
         }
     }
-    public int dequeue(){
+    public E dequeue(){
         if(!isEmpty()){
-            Node temp = front;
+            Node<E> temp = front;
             front = temp.next;
             return temp.data;
         }else {
@@ -32,16 +32,19 @@ public class Queue {
     public boolean isEmpty(){
         return front == null;
     }
-    public int peek (){
+    public E peek (){
         return front.data;
     }
-    public void printQueue(){
-        String holder = "";
-        Node current = front;
+
+    @Override
+    public String toString(){
+        StringBuilder holder = new StringBuilder();
+        Node<E> current = front;
         while(current !=null){
-            holder += "{ " + current.data + " } -> ";
+            holder.append("{ ").append(current.data).append(" } -> ");
             current = current.next;
         }
+        return holder.toString();
 //        System.out.println("FRONT" + holder + " BOTTOM");
     }
 }

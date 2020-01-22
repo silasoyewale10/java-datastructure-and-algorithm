@@ -1,10 +1,10 @@
 package stacksandqueues;
 
-public class Node {
-        public int data;
+public class Node<E>{
+        public E data;
         public Node next;
 
-        public Node(int data){
+        public Node(E data){
             this.data = data;
             this.next = null;
         }
