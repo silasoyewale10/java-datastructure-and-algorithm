@@ -37,8 +37,6 @@ public class BinaryTreeTest {
 
 
     }
-
-
     @Test
     public void testInOrder() {
         BinarySearchTree searchTree = new BinarySearchTree();
@@ -71,9 +69,6 @@ public class BinaryTreeTest {
 
 
     }
-
-
-
     @Test public void testPostOrder() {
         BinarySearchTree searchTree = new BinarySearchTree();
         BinaryTree tree = new BinaryTree();
@@ -109,7 +104,6 @@ public class BinaryTreeTest {
 
         @Test public void testContainsWhenPresent() {
         BinarySearchTree searchTree2 = new BinarySearchTree();
-//        BinaryTree tree2 = new BinaryTree();
 
         searchTree2.addNode(8);
         searchTree2.addNode(4);
@@ -118,8 +112,6 @@ public class BinaryTreeTest {
         searchTree2.addNode(13);
         searchTree2.addNode(43);
 
-
-//        System.out.println(searchTree2.contains(8));
 
         assertTrue(searchTree2.contains(8));
         assertTrue(searchTree2.contains(4));
@@ -132,18 +124,36 @@ public class BinaryTreeTest {
         }
     @Test public void testContainsWhenAbsent() {
         BinarySearchTree searchTree3 = new BinarySearchTree();
-//        BinaryTree tree2 = new BinaryTree();
 
         searchTree3.addNode(8);
         searchTree3.addNode(4);
         searchTree3.addNode(7);
         searchTree3.addNode(3);
 
-        System.out.println(searchTree3.contains(6));
-        System.out.println(searchTree3.contains(1));
-        System.out.println(searchTree3.contains(2));
-        System.out.println(searchTree3.contains(5));
-
+        assertFalse(searchTree3.contains(6));
+        assertFalse(searchTree3.contains(1));
+        assertFalse(searchTree3.contains(2));
+        assertFalse(searchTree3.contains(56));
 
     }
+    @Test public void testInstantiateEmptyTree() {
+        BinarySearchTree searchTree3 = new BinarySearchTree();
+        assertEquals(null, searchTree3.root);
+    }
+    @Test public void testSingleRootNode() {
+        BinarySearchTree searchTree3 = new BinarySearchTree();
+        searchTree3.addNode(4);
+        assertEquals(4, searchTree3.root.value);
+    }
+    @Test public void testLeftAndRightChildren() {
+        BinarySearchTree searchTree3 = new BinarySearchTree();
+        searchTree3.addNode(10);
+        searchTree3.addNode(7);
+        searchTree3.addNode(12);
+
+        assertEquals(7, searchTree3.root.leftOffSpring.value);
+        assertEquals(12, searchTree3.root.rightOffSpring.value);
+
+    }
+
 }

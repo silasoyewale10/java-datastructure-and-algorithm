@@ -11,7 +11,7 @@ public class BinarySearchTree {
         else{       //if root already exists, make root the pivot point of reference for left and right nodes as well as parent.
             Node runner = root;
             Node parent;
-            while (true) {
+            while (1 < 2) {
                 parent = runner;
                 if (value < runner.value) {   //if value of new node is lesser than the current, go to the left.
                     runner = runner.leftOffSpring;
@@ -20,7 +20,7 @@ public class BinarySearchTree {
                         return;
                     }
 
-                } else {   // if value of new node is lesser than the current, go to the left else, right.
+                } else {   // if value of new node is lesser than the current, go to the right else, left.
                     runner = runner.rightOffSpring;
 //                    break;
                     if (runner == null) {  //no children
@@ -32,41 +32,32 @@ public class BinarySearchTree {
         }
     }
     public boolean contains(int lookingFor){
-        Node runner = root;
-        if(lookingFor == runner.value){
-            return true;
-        }
-        System.out.println("runner.value = " + runner.value);
-        while(runner.value != lookingFor){
-            if(lookingFor < runner.value){
-                runner = runner.leftOffSpring;
-                if(runner.value == lookingFor){
-                    return true;
-                }
+        try {
+            Node runner = root;
+            if (lookingFor == runner.value) {
+                return true;
+            }
+//            System.out.println("runner.value = " + runner.value);
+            while (runner.value != lookingFor) {
+                if (lookingFor < runner.value) {
+                    runner = runner.leftOffSpring;
+                    if (runner.value == lookingFor) {
+                        return true;
+                    }
 //                System.out.println("runner. value" + runner.value);
-            }
-            else{
-                runner = runner.rightOffSpring;
-                if(runner.value == lookingFor){
-                    return true;
+                } else {
+                    runner = runner.rightOffSpring;
+                    if (runner.value == lookingFor) {
+                        return true;
+                    }
                 }
-            }
-
 //            return false;
+            }
+            return false;
+        }catch(NullPointerException e){
+            System.out.println("NullPointerException Arrested");
         }
         return false;
 
     }
-//    public String toString(Node runner){
-//        System.out.println("HI");
-////        String result = "";
-//////        runner = root;
-////        while (runner != null){
-////            result += runner.value;
-////        }
-////        return "First is " + result + "Last";
-//        return "HI";
-//    }
-
-
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class BinaryTree {
         ArrayList<Integer> preOrder = new ArrayList<>();
-        int [] preOrderArray;
+//        int [] preOrderArray;
         ArrayList<Integer> inOrder = new ArrayList<>();
         ArrayList<Integer> postOrder = new ArrayList<>();
 
@@ -16,7 +16,7 @@ public class BinaryTree {
                 preOrder(runner.leftOffSpring); //updates the runner to leftoffspring.
                 preOrder(runner.rightOffSpring); //updates runner to right;
             }
-            Object [] preOrderArray = preOrder.toArray();
+//            Object [] preOrderArray = preOrder.toArray();
 
 //        }else{
 //            return; // do nothing. go to sleep.
@@ -24,11 +24,6 @@ public class BinaryTree {
 //            return preOrderArray;
             return preOrder;
         }
-
-
-
-
-
 
         public ArrayList<Integer> inOrder(Node runner){  //left , me, right
             if(runner != null){
@@ -48,8 +43,6 @@ public class BinaryTree {
                 postOrder(runner.rightOffSpring); //updates runner to right;
 //                System.out.println(runner); // prints new runner which is left.
                 postOrder.add(runner.value);
-
-
             }
 //        else{
 //            return; // do nothing. go to sleep.
