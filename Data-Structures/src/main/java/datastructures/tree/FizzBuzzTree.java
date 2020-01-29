@@ -1,5 +1,10 @@
 package datastructures.tree;
 
+import stacksandqueues.Queue;
+
+import java.util.ArrayList;
+import java.util.Stack;
+
 public class FizzBuzzTree {
     NodeString root;
 
@@ -25,5 +30,31 @@ public class FizzBuzzTree {
             replace(runner.right);
         }
     }
+    public ArrayList breadthPrint() {
+        Queue myQueue = new Queue();
+        ArrayList myArrayList = new ArrayList();
+
+        if(this.root == null){
+            return myArrayList;
+        }
+        myQueue.enqueue(root);
+
+
+        while (!myQueue.isEmpty()) {
+
+            NodeString tmp = (NodeString) myQueue.dequeue();
+            myArrayList.add(tmp.value);
+
+            if(tmp.left != null){
+                myQueue.enqueue(tmp.left);
+            }
+            if(tmp.right != null){
+                myQueue.enqueue(tmp.right);
+            }
+        }
+
+        return myArrayList;
+    }
+
 }
 
