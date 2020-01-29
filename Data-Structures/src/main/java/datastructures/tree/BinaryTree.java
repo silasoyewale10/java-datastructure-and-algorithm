@@ -1,8 +1,12 @@
 package datastructures.tree;
 
+import stacksandqueues.Queue;
+
 import java.util.ArrayList;
 
 public class BinaryTree {
+//    Node root;
+    //to be moved
         ArrayList<Integer> preOrder = new ArrayList<>();
 //        int [] preOrderArray;
         ArrayList<Integer> inOrder = new ArrayList<>();
@@ -49,5 +53,4 @@ public class BinaryTree {
 //        }
             return postOrder;
         }
-
 }
