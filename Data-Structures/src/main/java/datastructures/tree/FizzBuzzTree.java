@@ -55,6 +55,37 @@ public class FizzBuzzTree {
 
         return myArrayList;
     }
+    public int findMaxValueInATree(){
+        int max = Integer.MIN_VALUE;
+        int intValue = 0;
+        Queue myQueue = new Queue();
+        ArrayList myArrayList = new ArrayList();
+
+        if(this.root == null){
+            return 0;
+        }
+        myQueue.enqueue(root);
+        while (!myQueue.isEmpty()) {
+
+            NodeString tmp = (NodeString) myQueue.dequeue();
+            myArrayList.add(tmp.value);
+
+            if(tmp.left != null){
+                myQueue.enqueue(tmp.left);
+            }
+            if(tmp.right != null){
+                myQueue.enqueue(tmp.right);
+            }
+        }
+        for(Object s : myArrayList){
+            String str = s.toString();
+            intValue = Integer.parseInt(str);
+            if(intValue > max){
+                max = intValue;
+            }
+        }
+        return max;
+    }
 
 }
 
