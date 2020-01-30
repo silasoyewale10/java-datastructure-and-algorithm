@@ -66,4 +66,34 @@ public class FizzBuzzTreeTest {
         assertEquals("[3]", tree.breadthPrint().toString());
     }
 
+    @Test public void testReturnMaxValueOne() {
+
+        NodeString root = new NodeString("15", new NodeString("15"), new NodeString("7", new NodeString("9"), new NodeString("10")));
+        FizzBuzzTree tree = new FizzBuzzTree(root);
+        tree.findMaxValueInATree();
+        assertEquals(15, tree.findMaxValueInATree());
+    }
+    @Test public void testReturnMaxValueTwo() {
+
+        NodeString root = new NodeString("1", new NodeString("17"), new NodeString("7", new NodeString("9"), new NodeString("10")));
+        FizzBuzzTree tree = new FizzBuzzTree(root);
+        tree.findMaxValueInATree();
+        assertEquals(17, tree.findMaxValueInATree());
+    }
+
+    @Test public void testReturnMaxValueThree() {
+
+        NodeString root = new NodeString("15");
+        FizzBuzzTree tree = new FizzBuzzTree(root);
+        tree.findMaxValueInATree();
+        assertEquals(15, tree.findMaxValueInATree());
+    }
+    @Test public void testReturnMaxValueFour() {
+
+        NodeString root = new NodeString("-1", new NodeString("0"), new NodeString("-7", new NodeString("-1000"), new NodeString("-10")));
+        FizzBuzzTree tree = new FizzBuzzTree(root);
+        tree.findMaxValueInATree();
+        assertEquals(0, tree.findMaxValueInATree());
+    }
+
 }
