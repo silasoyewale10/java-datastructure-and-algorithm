@@ -3,56 +3,82 @@ package datastructures;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedList;
 
 public class HashTable {
     int size;
-//    ArrayList<Integer> map;
-    String [] map;
-
+    LinkedList<ObjectInTable> [] map;
 
     public HashTable(int size) {
         this.size = size;
-        this.map = new String [size];
+        this.map = new LinkedList[size];
     }
+public class ObjectInTable {
+        String key;
+        String value;
+
+    public ObjectInTable(String key, String value) {
+        this.key = key;
+        this.value = value;
+    }
+}
 
     public int hash(String key){
         int hashValue = 0;
         for(int i = 0; i < key.length(); i++){
             hashValue += (int) key.charAt(i);
-            System.out.println(hashValue);
         }
-        System.out.println("hashValue = " + hashValue);
-
-        return (hashValue * 599) % this.size;
+        return (hashValue * 745) % this.size;
     }
+
+
     public void add(String key, String value){
+        ObjectInTable vv ;
         int hashKey = hash(key);
-
-        this.map[hashKey] = value;
-
+        if(map[hashKey] == null){ // no linkedlist yet
+            LinkedList<ObjectInTable> xx = new LinkedList<>();
+            ObjectInTable pp = new ObjectInTable(key, value);
+            xx.add(pp);
+            map[hashKey] = xx;
+//            xx.add(objectInTable);
+        }
+        else{
+            vv = new ObjectInTable(key, value);
+            map[hashKey].add(vv);
+        }
     }
 //    @Override
-    public int get(String key){
-        System.out.println("this.size is " + this.size);
-        for(int i = 0; i < this.size; i++){
-
-            if(map[i] == key){
-                System.out.println("i in get test");
-
-                System.out.println(" map of i is  = " + map[i]);
-            }
-
-            return hash(map[i]);
-
+    public String get(String key){
+        if(map[hash(key)] == null){
+            return null;
         }
-        return -1;
+        else {
+            LinkedList<ObjectInTable> listOfLists = map[hash(key)];
+            for(ObjectInTable list : listOfLists){
+                if(list.key.equals(key)){
+                    return list.value;
+                }
+
+            }
+            return null;
+        }
+//        return null;
     }
-
-
-    @Override
-    public String toString() {
-        return "HashTable{" +
-                "map=" + Arrays.toString(map) +
-                '}';
+    public boolean contains(String key){
+        int hash = hash(key);
+//        System.out.println("map[hash] != null = " + map[hash] != null);
+        if(map[hash] == null){
+            return false;
+        }
+        else {
+            LinkedList<ObjectInTable> listOfLists = map[hash(key)];
+            for(ObjectInTable list : listOfLists){
+                if(list.key.equals(key)){
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
+
