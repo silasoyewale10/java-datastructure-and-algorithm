@@ -19,3 +19,4 @@ No API used.
 
 
 # Image for whiteboard
+![](https://github.com/silasoyewale10/java-datastructure-and-algorithm/blob/master/Data-Structures/src/main/resources/assets/whiteboard-code-challenge-32.jpeg)
