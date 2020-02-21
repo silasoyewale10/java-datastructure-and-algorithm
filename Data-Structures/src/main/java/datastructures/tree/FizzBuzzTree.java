@@ -87,5 +87,38 @@ public class FizzBuzzTree {
         return max;
     }
 
+//    public ArrayList treeIntersection(BinarySearchTree x, BinarySearchTree y){
+//        Queue myQueue = new Queue();
+//        ArrayList myArrayList = new ArrayList();
+//
+//        if(this.root == null){
+//            return myArrayList;
+//        }
+//        myQueue.enqueue(root);
+//
+//
+//        while (!myQueue.isEmpty()) {
+//
+//            Node tmp = (Node) myQueue.dequeue();
+//            myArrayList.add(tmp.value);
+//
+//            if(tmp.leftOffSpring != null){
+//                if(x.root.value == y.root.value){
+//                    myArrayList.add(x.root.value);
+//                }
+//                myQueue.enqueue(tmp.leftOffSpring);
+//            }
+//            if(tmp.right != null){
+//                if(x.root.value == y.root.value){
+//                    myArrayList.add(x.root.value);
+//                }
+//                myQueue.enqueue(tmp.right);
+//            }
+//        }
+//
+//        return myArrayList;
+//
+//    }
+
 }
 
