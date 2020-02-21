@@ -20,3 +20,6 @@ For my binarysearch tree search has a big O of log n base 2. adding is O(n).
 ## API
 <!-- Description of each method publicly available in each of your trees -->
 No API needed.
+
+## whiteboard
+![] (https://github.com/silasoyewale10/java-datastructure-and-algorithm/blob/master/Data-Structures/src/main/resources/assets/whiteboard-code-challenge-33.JPG)
