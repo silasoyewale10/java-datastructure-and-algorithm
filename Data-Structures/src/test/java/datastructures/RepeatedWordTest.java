@@ -40,4 +40,10 @@ public class RepeatedWordTest {
         assertEquals(expected, xx.repeatedWord("It it it it it it "));
     }
 
+    @Test
+    public void test6() {
+        RepeatedWord xx = new RepeatedWord();
+        String expected = "time";
+        assertEquals(expected, xx.repeatedWord("Once upon a time time was upon us "));
+    }
 }
