@@ -37,3 +37,6 @@ Returns the total number of nodes in the graph
 I declared a vertex, graph and edge class. I store the edges of each node in a arraylist and 
 i store the vertexes of the graph in an array list. Each vertex has its own connections and its 
 east to masintain like this. The big O is O(n).
+
+## API
+No API used for this project. 
