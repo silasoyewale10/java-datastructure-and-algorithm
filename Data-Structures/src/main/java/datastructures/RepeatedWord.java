@@ -9,10 +9,12 @@ public class RepeatedWord {
         String[] words = sentence.toLowerCase().split(" ");
         String [] checkers = new String [words.length];
         String [] answer = new String [checkers.length];
-        for (int i = 0; i < words.length; i++) {
-            for (int j = i + 1; j < words.length; j++) {
+        int k = 0;
+        for (int i = 0; i < words.length && k < 1; i++) {
+            for (int j = i + 1; j < words.length && k < 1; j++) {
                 if (words[i].equals(words[j])) {
                     checkers[i] = words[i];
+                    k = 10;
                 }
             }
         }
