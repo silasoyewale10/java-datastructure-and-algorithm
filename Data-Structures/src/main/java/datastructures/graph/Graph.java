@@ -54,35 +54,32 @@ public class Graph {
         return x.edgesThisVertexIsConnectedTo.contains(y.edgesThisVertexIsConnectedTo);
     }
     public void breadthFirst(Vertex v){
-        allVertexes.add(v);
-        Queue<String> queue = new LinkedList<String>();
-        boolean [] visited = new boolean[allVertexes.size()];
 
-        for(int j = 0; j < visited.length; j++){
-            visited[j]= false;
-        }
+     HashSet<String> alreadySeen = new HashSet<>();
+     Queue<String> nodesToProcess = new LinkedList<>();
+     List<String> output = new LinkedList<>();
 
-        for(Vertex a : allVertexes){
-            if(a.name == v.name){
-                v.isVisited = true;
-            }
-        }
-        queue.add(v.name);
 
-        while(queue.size() !=0){
-            v.name = queue.poll();
-            System.out.println(v.name);
-
-            Iterator<String> i = getNeighbours(v).iterator();
-
-            for(Object c : getNeighbours(v))
-            while(i.hasNext()){
-                System.out.println("i is " + i.toString().toUpperCase());
-                String n = i.next();
-//                if(!)
+     ArrayList onlyNamesOfVertices = new ArrayList(); // all the neighbors of the vertex.
+        for(int i = 0; i < getNeighbours(v).size(); i++){ // getting only names from my arraylist. not inlcuding weight.
+            if(getNeighbours(v).get(i) instanceof String){
+                onlyNamesOfVertices.add(getNeighbours(v).get(i));
             }
         }
 
+        nodesToProcess.add(v.name);
+        alreadySeen.add(v.name);
+        String currentVertex = nodesToProcess.remove();
 
+
+        for(int i = 0; i < onlyNamesOfVertices.size(); i++){
+            if(alreadySeen.contains(onlyNamesOfVertices.get(i))){
+                System.out.println("do nothing");
+            }
+            else {
+//                alreadySeen.add(onlyNamesOfVertices.get(i);
+
+            }
+        }
     }
 }
