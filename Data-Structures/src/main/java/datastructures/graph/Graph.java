@@ -1,9 +1,6 @@
 package datastructures.graph;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Graph {
     HashSet<Vertex> allVertexes ;
@@ -33,7 +30,6 @@ public class Graph {
     }
     public ArrayList getNeighbours(Vertex iWantAllMyNeighbours){
         ArrayList vertexesThatAreMyNeighbors = new ArrayList();
-
         for(Edge edge: iWantAllMyNeighbours.edgesThisVertexIsConnectedTo){
             if(iWantAllMyNeighbours.edgesThisVertexIsConnectedTo.contains(edge)){
                 vertexesThatAreMyNeighbors.add(edge.connectionNode.name);
@@ -56,5 +52,37 @@ public class Graph {
     }
     public boolean isConnected(Vertex x, Vertex y){
         return x.edgesThisVertexIsConnectedTo.contains(y.edgesThisVertexIsConnectedTo);
+    }
+    public void breadthFirst(Vertex v){
+        allVertexes.add(v);
+        Queue<String> queue = new LinkedList<String>();
+        boolean [] visited = new boolean[allVertexes.size()];
+
+        for(int j = 0; j < visited.length; j++){
+            visited[j]= false;
+        }
+
+        for(Vertex a : allVertexes){
+            if(a.name == v.name){
+                v.isVisited = true;
+            }
+        }
+        queue.add(v.name);
+
+        while(queue.size() !=0){
+            v.name = queue.poll();
+            System.out.println(v.name);
+
+            Iterator<String> i = getNeighbours(v).iterator();
+
+            for(Object c : getNeighbours(v))
+            while(i.hasNext()){
+                System.out.println("i is " + i.toString().toUpperCase());
+                String n = i.next();
+//                if(!)
+            }
+        }
+
+
     }
 }
