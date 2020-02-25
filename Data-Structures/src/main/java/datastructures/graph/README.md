@@ -40,3 +40,20 @@ east to masintain like this. The big O is O(n).
 
 ## API
 No API used for this project. 
+
+# BREADTH FIRST TRAVERSAL OF A GRAPH
+## CHALLENGE
+Extend your graph object with a breadth-first traversal method that accepts a starting node.
+Without utilizing any of the built-in methods available to your language, return a collection 
+of nodes in the order they were visited. Display the collection.
+## APPROACH AND EFFICIENCY
+Create a hashSet for all seen nodes, create a queue for all nodes and create a list for all 
+output in the right order and create a current node.
+Iterate through the graph starting with the vertex the method takes in. Enqueue this vertex and add to seen. Dequeue this vertex and and save it to the current .
+Add the current to the list of output. Run the getneighbor method on the vertex and repeat the above process for all the neighbors. Return output. 
+## Big O
+Space is O(1)
+Time is O(n).
+## TESTING
+Write at least three test assertions for each method that you define.
+
