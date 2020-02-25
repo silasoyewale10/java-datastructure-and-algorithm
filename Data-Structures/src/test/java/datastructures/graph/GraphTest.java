@@ -75,6 +75,7 @@ public class GraphTest {
         expected.add(Chickasha.name);
         expected.add(oklahoma.name);
         expected.add(Lawton.name);
+
         assertEquals(expected, gg.getNodes());
     }
     @Test public void testGetNeighbors(){
@@ -118,4 +119,27 @@ public class GraphTest {
 
         assertEquals(5, gg.size());
     }
+
+    @Test public void testBreadthFirst(){
+        Graph gg = new Graph();
+
+        Vertex oklahoma = gg.addVertex("Oklahoma");
+        Vertex Edmund = gg.addVertex("Edmund");
+        Vertex Sill = gg.addVertex("Sill");
+        Vertex Lawton = gg.addVertex("Lawton");
+        Vertex Chickasha = gg.addVertex("Chickasha");
+
+        gg.addEdge(oklahoma, Edmund, 200);
+        gg.addEdge(Sill, Lawton, 250);
+        gg.addEdge(Chickasha, Lawton,300);
+        gg.addEdge(Chickasha, oklahoma, 350);
+        gg.addEdge(Sill, Edmund, 100);
+
+        gg.addEdge(oklahoma,Sill, 200);
+        gg.addEdge(Chickasha, Sill, 500);
+        gg.addEdge(Edmund, Chickasha, 400);
+
+        gg.breadthFirst(oklahoma);
+    }
+
 }
