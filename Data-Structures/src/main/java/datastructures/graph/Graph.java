@@ -40,11 +40,11 @@ public class Graph {
         return vertex;
     }
     public ArrayList<Vertex> getNeighbours(Vertex iWantAllMyNeighbours){
-        ArrayList vertexesThatAreMyNeighbors = new ArrayList();
+        ArrayList<Vertex> vertexesThatAreMyNeighbors = new ArrayList();
         for(Edge edge: iWantAllMyNeighbours.edgesThisVertexIsConnectedTo){
             if(iWantAllMyNeighbours.edgesThisVertexIsConnectedTo.contains(edge)){
-                vertexesThatAreMyNeighbors.add(edge.connectionNode.name);
-                vertexesThatAreMyNeighbors.add(edge.weight);
+                vertexesThatAreMyNeighbors.add(edge.connectionNode);
+//                vertexesThatAreMyNeighbors.add(edge.weight);
             }
         }
             return vertexesThatAreMyNeighbors;
@@ -92,44 +92,23 @@ public class Graph {
     }
 
 
-    public void getEdge(Graph g, Vertex [] arr) throws IndexOutOfBoundsException{
-        Graph gg = new Graph();
-
-        for(int i = 0; i < arr.length; i++){
-            arr[i] = gg.addVertex(arr[i].name);
-            System.out.println("arr at " + i + "is " + arr[i]);
-        }
-        gg.addEdge(arr[0], arr[1], 200);
-        gg.addEdge(arr[1], arr[2], 50);
-        gg.addEdge(arr[2], arr[3],180);
-        gg.addEdge(arr[3], arr[4], 500);
-        gg.addEdge(arr[0], arr[4], 100);
-
-        gg.addEdge(arr[0],arr[2], 400);
-        gg.addEdge(arr[2], arr[4], 30);
-
-        System.out.println(getNeighbours(arr[2]));
-
-    }
-    public String checkDirectFlightAndCost(Vertex departure, Vertex arrival){
-        String answer = " ";
-        if(getNeighbours(departure).contains(arrival)){
-            answer = "True";
-        }
-        else{
-            answer = "False";
-        }
-        int cost = 0;
-        for(Edge edge : departure.edgesThisVertexIsConnectedTo){
-            if(edge.connectionNode == arrival){
-                cost = edge.weight;
+    public String getEdge(Graph gg, Vertex [] arr) throws ArrayIndexOutOfBoundsException{
+        int sumOfCharges = 0;
+        if(arr.length > 1){
+            for(int i = 0; i < arr.length-1; i++){
+                if(getNeighbours(arr[i]).contains(arr[i+1])){
+                    for(Edge e : arr[i].edgesThisVertexIsConnectedTo) {
+                        if(e.connectionNode == arr[i+1]){
+                            sumOfCharges += e.weight;
+                        }
+                    }
+                }
+                else{
+                    return "False $0";
+                }
             }
-            else{
-                cost = 0;
-            }
+            return "True $" + sumOfCharges;
         }
-        return answer + " " + "$"+cost;
-
+        return "False $0";
     }
-
 }

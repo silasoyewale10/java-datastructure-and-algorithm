@@ -50,10 +50,10 @@ public class GraphTest {
         gg.addEdge(Edmund, Chickasha, 400);
 
 //        System.out.println(gg.getNeighbours(oklahoma).contains(Edmund.name));
-        assertTrue(gg.getNeighbours(Sill).contains(Lawton.name));
-        assertFalse(gg.getNeighbours(oklahoma).contains(Lawton.name));
-        assertTrue(gg.getNeighbours(Chickasha).contains(Edmund.name));
-        assertTrue(gg.getNeighbours(Edmund).contains(Sill.name));
+        assertTrue(gg.getNeighbours(Sill).contains(Lawton));
+        assertFalse(gg.getNeighbours(oklahoma).contains(Lawton));
+        assertTrue(gg.getNeighbours(Chickasha).contains(Edmund));
+        assertTrue(gg.getNeighbours(Edmund).contains(Sill));
 
 
     }
@@ -141,7 +141,6 @@ public class GraphTest {
         gg.addEdge(Chickasha, Lawton,300);
         gg.addEdge(Chickasha, oklahoma, 350);
         gg.addEdge(Sill, Edmund, 100);
-
         gg.addEdge(oklahoma,Sill, 200);
         gg.addEdge(Chickasha, Sill, 500);
         gg.addEdge(Edmund, Chickasha, 400);
@@ -165,20 +164,21 @@ public class GraphTest {
         Vertex Lawton = gg.addVertex("Lawton");
         Vertex Chickasha = gg.addVertex("Chickasha");
 
+        gg.addEdge(oklahoma, Edmund, 200);
+        gg.addEdge(Sill, Lawton, 250);
+        gg.addEdge(Chickasha, Lawton,300);
+        gg.addEdge(Chickasha, oklahoma, 350);
+        gg.addEdge(Sill, Edmund, 100);
+        gg.addEdge(oklahoma,Sill, 200);
+        gg.addEdge(Chickasha, Sill, 500);
+        gg.addEdge(Edmund, Chickasha, 400);
 
-        Vertex [] arr = { Lawton, oklahoma, Chickasha, Edmund, Sill};
-        gg.getEdge(gg, arr);
-        gg.checkDirectFlightAndCost(oklahoma, Edmund);
-        System.out.println(gg.checkDirectFlightAndCost(oklahoma, Edmund));
-
-        assertEquals("False $0", gg.checkDirectFlightAndCost(oklahoma, Edmund));
-        assertEquals("True $0", gg.checkDirectFlightAndCost(oklahoma, Edmund));
-        assertEquals("False $0", gg.checkDirectFlightAndCost(oklahoma, Edmund));
-        assertEquals("True $0", gg.checkDirectFlightAndCost(oklahoma, Edmund));
-        assertEquals("False $0", gg.checkDirectFlightAndCost(oklahoma, Edmund));
-        assertEquals("True $0", gg.checkDirectFlightAndCost(oklahoma, Edmund));
-
-
+        assertEquals("True $300",gg.getEdge(gg, new Vertex[]{Chickasha, Lawton}));
+        assertEquals("False $0",gg.getEdge(gg, new Vertex[]{Sill, Lawton, Edmund}));
+        assertEquals("False $0",gg.getEdge(gg, new Vertex[]{Edmund, Lawton}));
+        assertEquals("False $0",gg.getEdge(gg, new Vertex[]{oklahoma, Lawton}));
+        assertEquals("True $250",gg.getEdge(gg, new Vertex[]{Sill, Lawton}));
+        assertEquals("True $200",gg.getEdge(gg, new Vertex[]{oklahoma, Sill}));
     }
 
 }
