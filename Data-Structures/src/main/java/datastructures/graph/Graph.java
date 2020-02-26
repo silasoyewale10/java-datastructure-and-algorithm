@@ -1,12 +1,15 @@
 package datastructures.graph;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class Graph {
     HashSet<Vertex> allVertexes ;
+    HashSet<Vertex>todayVertexes;
 
     public Graph(){ // creates pointers
         allVertexes = new HashSet<>();
+        todayVertexes = new HashSet<>();
     }
     public Vertex addVertex(String nameOfVertex){
         Vertex nn = new Vertex(nameOfVertex);
@@ -14,6 +17,14 @@ public class Graph {
         allVertexes.add(nn);
         return nn;
     }
+
+    public Vertex addVertexVertex(Vertex vertex){
+        Vertex nn = new Vertex(vertex.name);
+        nn.name = vertex.name;
+        todayVertexes.add(nn);
+        return nn;
+    }
+
     public void addEdge(Vertex startVertex, Vertex endVertex, int weight){
         Edge pointToEnd = new Edge(endVertex, weight);
         startVertex.edgesThisVertexIsConnectedTo.add(pointToEnd);
@@ -28,7 +39,7 @@ public class Graph {
         }
         return vertex;
     }
-    public ArrayList getNeighbours(Vertex iWantAllMyNeighbours){
+    public ArrayList<Vertex> getNeighbours(Vertex iWantAllMyNeighbours){
         ArrayList vertexesThatAreMyNeighbors = new ArrayList();
         for(Edge edge: iWantAllMyNeighbours.edgesThisVertexIsConnectedTo){
             if(iWantAllMyNeighbours.edgesThisVertexIsConnectedTo.contains(edge)){
@@ -79,4 +90,46 @@ public class Graph {
         }
         return output;
     }
+
+
+    public void getEdge(Graph g, Vertex [] arr) throws IndexOutOfBoundsException{
+        Graph gg = new Graph();
+
+        for(int i = 0; i < arr.length; i++){
+            arr[i] = gg.addVertex(arr[i].name);
+            System.out.println("arr at " + i + "is " + arr[i]);
+        }
+        gg.addEdge(arr[0], arr[1], 200);
+        gg.addEdge(arr[1], arr[2], 50);
+        gg.addEdge(arr[2], arr[3],180);
+        gg.addEdge(arr[3], arr[4], 500);
+        gg.addEdge(arr[0], arr[4], 100);
+
+        gg.addEdge(arr[0],arr[2], 400);
+        gg.addEdge(arr[2], arr[4], 30);
+
+        System.out.println(getNeighbours(arr[2]));
+
+    }
+    public String checkDirectFlightAndCost(Vertex departure, Vertex arrival){
+        String answer = " ";
+        if(getNeighbours(departure).contains(arrival)){
+            answer = "True";
+        }
+        else{
+            answer = "False";
+        }
+        int cost = 0;
+        for(Edge edge : departure.edgesThisVertexIsConnectedTo){
+            if(edge.connectionNode == arrival){
+                cost = edge.weight;
+            }
+            else{
+                cost = 0;
+            }
+        }
+        return answer + " " + "$"+cost;
+
+    }
+
 }
