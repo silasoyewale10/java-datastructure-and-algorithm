@@ -57,3 +57,16 @@ Time is O(n).
 ## TESTING
 Write at least three test assertions for each method that you define.
 
+# GETEDGE
+## CHALLENGE
+Write a function based on the specifications above, which takes in a graph, and an array of city names. Without utilizing any of the built-in methods available to your language, return whether the full trip is possible with direct flights, and how much it would cost.
+
+## APPROACH AND EFFICIENCY
+Create a variable to hold sum. Loop through the array to len-1. if the nodes are neighbors, loop through the edges. it this edge connects both cities, add the weight of the edge to the sum. return True and sum anf if they are not connected, return false $0. 
+## BIG O
+Time is O(n)
+Space is O(1)
+
+## API
+No API needed for this code challenge. 
+
