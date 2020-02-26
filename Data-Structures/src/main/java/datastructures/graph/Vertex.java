@@ -13,4 +13,9 @@ public class Vertex {
         this.edgesThisVertexIsConnectedTo = new ArrayList<>();
         isVisited = false;
     }
+
+    @Override
+    public String toString() {
+        return name ;
+    }
 }

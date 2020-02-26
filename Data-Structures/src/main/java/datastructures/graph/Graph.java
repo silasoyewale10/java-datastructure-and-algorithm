@@ -53,33 +53,30 @@ public class Graph {
     public boolean isConnected(Vertex x, Vertex y){
         return x.edgesThisVertexIsConnectedTo.contains(y.edgesThisVertexIsConnectedTo);
     }
-    public void breadthFirst(Vertex v){
+    public List<Vertex> breadthFirst(Vertex v){
 
-     HashSet<String> alreadySeen = new HashSet<>();
-     Queue<String> nodesToProcess = new LinkedList<>();
-     List<String> output = new LinkedList<>();
+     Set<Vertex> alreadySeen = new HashSet<>();
+     Queue<Vertex> queue = new LinkedList<>();
+     List<Vertex> output = new LinkedList<>();
 
 
-     ArrayList onlyNamesOfVertices = new ArrayList(); // all the neighbors of the vertex.
-        for(int i = 0; i < getNeighbours(v).size(); i++){ // getting only names from my arraylist. not inlcuding weight.
-            if(getNeighbours(v).get(i) instanceof String){
-                onlyNamesOfVertices.add(getNeighbours(v).get(i));
+
+        queue.add(v);  //added to quque
+        alreadySeen.add(v);  //added to set
+
+
+
+        while(!queue.isEmpty()){
+            Vertex currentVertex = queue.remove();
+            for(Edge edge: currentVertex.edgesThisVertexIsConnectedTo){
+                if(!alreadySeen.contains(edge.connectionNode)){
+                    alreadySeen.add(edge.connectionNode);
+                    queue.add(edge.connectionNode);
+
+                }
             }
+            output.add(currentVertex);
         }
-
-        nodesToProcess.add(v.name);
-        alreadySeen.add(v.name);
-        String currentVertex = nodesToProcess.remove();
-
-
-        for(int i = 0; i < onlyNamesOfVertices.size(); i++){
-            if(alreadySeen.contains(onlyNamesOfVertices.get(i))){
-                System.out.println("do nothing");
-            }
-            else {
-//                alreadySeen.add(onlyNamesOfVertices.get(i);
-
-            }
-        }
+        return output;
     }
 }
