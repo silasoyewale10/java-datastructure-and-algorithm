@@ -49,11 +49,11 @@ public class GraphTest {
         gg.addEdge(Chickasha, Sill, 500);
         gg.addEdge(Edmund, Chickasha, 400);
 
-        System.out.println(gg.getNeighbours(oklahoma).contains(Edmund.name));
-        assertTrue(gg.getNeighbours(Sill).contains(Lawton.name));
-        assertFalse(gg.getNeighbours(oklahoma).contains(Lawton.name));
-        assertTrue(gg.getNeighbours(Chickasha).contains(Edmund.name));
-        assertTrue(gg.getNeighbours(Edmund).contains(Sill.name));
+//        System.out.println(gg.getNeighbours(oklahoma).contains(Edmund.name));
+        assertTrue(gg.getNeighbours(Sill).contains(Lawton));
+        assertFalse(gg.getNeighbours(oklahoma).contains(Lawton));
+        assertTrue(gg.getNeighbours(Chickasha).contains(Edmund));
+        assertTrue(gg.getNeighbours(Edmund).contains(Sill));
 
 
     }
@@ -67,7 +67,7 @@ public class GraphTest {
         Vertex Chickasha = gg.addVertex("Chickasha");
 
 
-        System.out.println(gg.getNodes());
+//        System.out.println(gg.getNodes());
 
         ArrayList expected = new ArrayList();
         expected.add(Sill.name);
@@ -105,7 +105,7 @@ public class GraphTest {
         gg.addEdge(Chickasha, Sill, 500);
         gg.addEdge(Edmund, Chickasha, 400);
 
-        System.out.println(gg.getNeighbours(oklahoma));
+//        System.out.println(gg.getNeighbours(oklahoma));
         ArrayList expected = new ArrayList();
         expected.add(Edmund);
         expected.add(200);
@@ -114,7 +114,7 @@ public class GraphTest {
         expected.add(Sill);
         expected.add(200);
 
-        System.out.println(gg.getNeighbours(oklahoma));
+//        System.out.println(gg.getNeighbours(oklahoma));
     }
     @Test public void testGetSize(){ //good to go
         Graph gg = new Graph();
@@ -141,12 +141,11 @@ public class GraphTest {
         gg.addEdge(Chickasha, Lawton,300);
         gg.addEdge(Chickasha, oklahoma, 350);
         gg.addEdge(Sill, Edmund, 100);
-
         gg.addEdge(oklahoma,Sill, 200);
         gg.addEdge(Chickasha, Sill, 500);
         gg.addEdge(Edmund, Chickasha, 400);
 
-        System.out.println(gg.breadthFirst(oklahoma));
+//        System.out.println(gg.breadthFirst(oklahoma));
 
 
         for(int i = 0; i < gg.breadthFirst(oklahoma).size(); i++){
@@ -154,6 +153,32 @@ public class GraphTest {
             assertTrue(v.name == gg.breadthFirst(oklahoma).get(i).name);
 
         }
+    }
+
+    @Test public void testGetEdge(){
+        Graph gg = new Graph();
+
+        Vertex oklahoma = gg.addVertex("Oklahoma");
+        Vertex Edmund = gg.addVertex("Edmund");
+        Vertex Sill = gg.addVertex("Sill");
+        Vertex Lawton = gg.addVertex("Lawton");
+        Vertex Chickasha = gg.addVertex("Chickasha");
+
+        gg.addEdge(oklahoma, Edmund, 200);
+        gg.addEdge(Sill, Lawton, 250);
+        gg.addEdge(Chickasha, Lawton,300);
+        gg.addEdge(Chickasha, oklahoma, 350);
+        gg.addEdge(Sill, Edmund, 100);
+        gg.addEdge(oklahoma,Sill, 200);
+        gg.addEdge(Chickasha, Sill, 500);
+        gg.addEdge(Edmund, Chickasha, 400);
+
+        assertEquals("True $300",gg.getEdge(gg, new Vertex[]{Chickasha, Lawton}));
+        assertEquals("False $0",gg.getEdge(gg, new Vertex[]{Sill, Lawton, Edmund}));
+        assertEquals("False $0",gg.getEdge(gg, new Vertex[]{Edmund, Lawton}));
+        assertEquals("False $0",gg.getEdge(gg, new Vertex[]{oklahoma, Lawton}));
+        assertEquals("True $250",gg.getEdge(gg, new Vertex[]{Sill, Lawton}));
+        assertEquals("True $200",gg.getEdge(gg, new Vertex[]{oklahoma, Sill}));
     }
 
 }
