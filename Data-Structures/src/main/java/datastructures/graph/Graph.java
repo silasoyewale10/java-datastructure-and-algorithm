@@ -64,11 +64,11 @@ public class Graph {
     public boolean isConnected(Vertex x, Vertex y){
         return x.edgesThisVertexIsConnectedTo.contains(y.edgesThisVertexIsConnectedTo);
     }
-    public List<Vertex> breadthFirst(Vertex v){
+    public List<String> breadthFirst(Vertex v){
 
      Set<Vertex> alreadySeen = new HashSet<>();
      Queue<Vertex> queue = new LinkedList<>();
-     List<Vertex> output = new LinkedList<>();
+     List<String> output = new LinkedList<>();
 
         queue.add(v);  //added to quque
         alreadySeen.add(v);  //added to set
@@ -82,7 +82,7 @@ public class Graph {
 
                 }
             }
-            output.add(currentVertex);
+            output.add(currentVertex.name);
         }
         return output;
     }
@@ -106,11 +106,11 @@ public class Graph {
         return "False $0";
     }
 
-    public List<Vertex> depthFirst(Vertex v) {
+    public List<String> depthFirst(Vertex v) {
 
         Set<Vertex> alreadySeen = new HashSet<>();
         LinkedList<Vertex> queue = new LinkedList<>();
-        List<Vertex> output = new LinkedList<>();
+        List<String> output = new LinkedList<>();
 
         queue.add(v);  //added to quque
         alreadySeen.add(v);  //added to set
@@ -123,7 +123,7 @@ public class Graph {
                     queue.addFirst(edge.connectionNode);
                 }
             }
-            output.add(currentVertex);
+            output.add(currentVertex.name);
         }
         return output;
     }

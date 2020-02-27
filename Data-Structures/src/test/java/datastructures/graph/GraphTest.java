@@ -1,8 +1,11 @@
 package datastructures.graph;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -145,14 +148,20 @@ public class GraphTest {
         gg.addEdge(Chickasha, Sill, 500);
         gg.addEdge(Edmund, Chickasha, 400);
 
-        System.out.println(gg.breadthFirst(oklahoma));
+        List<String> expected = Arrays.asList("Oklahoma", "Edmund", "Chickasha", "Sill","Lawton");
+        List<String> actual = gg.breadthFirst(oklahoma);
+
+        List<String> expected2 = Arrays.asList("Edmund", "Oklahoma", "Sill", "Chickasha", "Lawton");
+        List<String> actual2 = gg.breadthFirst(Edmund);
 
 
-        for(int i = 0; i < gg.breadthFirst(oklahoma).size(); i++){
-            Vertex v = gg.breadthFirst(oklahoma).get(i);
-            assertTrue(v.name == gg.breadthFirst(oklahoma).get(i).name);
+        List<String> expected3 = Arrays.asList("Sill", "Lawton", "Edmund", "Oklahoma", "Chickasha");
+        List<String> actual3 = gg.breadthFirst(Sill);
 
-        }
+
+        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected2, actual2);
+        Assert.assertEquals(expected3, actual3);
     }
 
     @Test public void testGetEdge(){
@@ -200,14 +209,22 @@ public class GraphTest {
         gg.addEdge(Chickasha, Sill, 500);
         gg.addEdge(Edmund, Chickasha, 400);
 
-        System.out.println(gg.depthFirst(oklahoma));
+        List<String> expected = Arrays.asList("Oklahoma", "Sill", "Lawton", "Chickasha","Edmund");
+        List<String> actual = gg.depthFirst(oklahoma);
+
+        List<String> expected2 = Arrays.asList("Edmund", "Chickasha", "Lawton", "Sill", "Oklahoma");
+        List<String> actual2 = gg.depthFirst(Edmund);
 
 
-        for(int i = 0; i < gg.breadthFirst(oklahoma).size(); i++){
-            Vertex v = gg.depthFirst(oklahoma).get(i);
-            assertTrue(v.name == gg.depthFirst(oklahoma).get(i).name);
+        List<String> expected3 = Arrays.asList("Sill", "Chickasha", "Oklahoma", "Edmund", "Lawton");
+        List<String> actual3 = gg.depthFirst(Sill);
 
-        }
+
+        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected2, actual2);
+        Assert.assertEquals(expected3, actual3);
+
+
     }
 
 }
