@@ -145,7 +145,7 @@ public class GraphTest {
         gg.addEdge(Chickasha, Sill, 500);
         gg.addEdge(Edmund, Chickasha, 400);
 
-//        System.out.println(gg.breadthFirst(oklahoma));
+        System.out.println(gg.breadthFirst(oklahoma));
 
 
         for(int i = 0; i < gg.breadthFirst(oklahoma).size(); i++){
@@ -179,6 +179,35 @@ public class GraphTest {
         assertEquals("False $0",gg.getEdge(gg, new Vertex[]{oklahoma, Lawton}));
         assertEquals("True $250",gg.getEdge(gg, new Vertex[]{Sill, Lawton}));
         assertEquals("True $200",gg.getEdge(gg, new Vertex[]{oklahoma, Sill}));
+    }
+
+
+    @Test public void testDepthFirst(){
+        Graph gg = new Graph();
+
+        Vertex oklahoma = gg.addVertex("Oklahoma");
+        Vertex Edmund = gg.addVertex("Edmund");
+        Vertex Sill = gg.addVertex("Sill");
+        Vertex Lawton = gg.addVertex("Lawton");
+        Vertex Chickasha = gg.addVertex("Chickasha");
+
+        gg.addEdge(oklahoma, Edmund, 200);
+        gg.addEdge(Sill, Lawton, 250);
+        gg.addEdge(Chickasha, Lawton,300);
+        gg.addEdge(Chickasha, oklahoma, 350);
+        gg.addEdge(Sill, Edmund, 100);
+        gg.addEdge(oklahoma,Sill, 200);
+        gg.addEdge(Chickasha, Sill, 500);
+        gg.addEdge(Edmund, Chickasha, 400);
+
+        System.out.println(gg.depthFirst(oklahoma));
+
+
+        for(int i = 0; i < gg.breadthFirst(oklahoma).size(); i++){
+            Vertex v = gg.depthFirst(oklahoma).get(i);
+            assertTrue(v.name == gg.depthFirst(oklahoma).get(i).name);
+
+        }
     }
 
 }
