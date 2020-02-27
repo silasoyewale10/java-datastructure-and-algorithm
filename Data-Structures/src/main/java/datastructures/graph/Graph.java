@@ -70,12 +70,8 @@ public class Graph {
      Queue<Vertex> queue = new LinkedList<>();
      List<Vertex> output = new LinkedList<>();
 
-
-
         queue.add(v);  //added to quque
         alreadySeen.add(v);  //added to set
-
-
 
         while(!queue.isEmpty()){
             Vertex currentVertex = queue.remove();
@@ -90,8 +86,6 @@ public class Graph {
         }
         return output;
     }
-
-
     public String getEdge(Graph gg, Vertex [] arr) throws ArrayIndexOutOfBoundsException{
         int sumOfCharges = 0;
         if(arr.length > 1){
@@ -110,5 +104,27 @@ public class Graph {
             return "True $" + sumOfCharges;
         }
         return "False $0";
+    }
+
+    public List<Vertex> depthFirst(Vertex v) {
+
+        Set<Vertex> alreadySeen = new HashSet<>();
+        LinkedList<Vertex> queue = new LinkedList<>();
+        List<Vertex> output = new LinkedList<>();
+
+        queue.add(v);  //added to quque
+        alreadySeen.add(v);  //added to set
+
+        while(!queue.isEmpty()){
+            Vertex currentVertex = queue.remove();
+            for(Edge edge: currentVertex.edgesThisVertexIsConnectedTo){
+                if(!alreadySeen.contains(edge.connectionNode)){
+                    alreadySeen.add(edge.connectionNode);
+                    queue.addFirst(edge.connectionNode);
+                }
+            }
+            output.add(currentVertex);
+        }
+        return output;
     }
 }
